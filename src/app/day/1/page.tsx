@@ -34,6 +34,7 @@ export default function Day1() {
   return (
     <Grid container sx={{ width: "100vw", height: "100vh" }}>
       <Grid
+        container
         xs={12}
         md={6}
         spacing={2}
@@ -42,7 +43,6 @@ export default function Day1() {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          padding: "20px",
         }}
         item
       >
@@ -79,7 +79,10 @@ export default function Day1() {
           </Typography>
         </Stack>
       </Grid>
-      <Grid md={6} sx={{ display: { xs: "none", md: "block" }, width: "100%" }}>
+      <Grid
+        md={6}
+        sx={{ display: { xs: "none", md: "block" }, width: "50vw", p: 1 }}
+      >
         <Image
           width={500}
           height={500}
@@ -87,7 +90,8 @@ export default function Day1() {
             objectFit: "cover",
             minWidth: "100%",
             maxWidth: "100%",
-            height: "100vh",
+            minHeight: "100%",
+            maxHeight: "100%",
           }}
           alt="hills"
           src="/d1/hills.png"

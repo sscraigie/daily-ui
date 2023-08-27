@@ -81,11 +81,15 @@ export default function Day1() {
       </Grid>
       <Grid
         md={6}
-        sx={{ display: { xs: "none", md: "block" }, width: "50vw", p: 1 }}
+        sx={{
+          display: { xs: "none", md: "block" },
+          width: "50vw",
+          p: 1,
+        }}
       >
         <Image
-          width={500}
-          height={500}
+          width={100}
+          height={100}
           style={{
             objectFit: "cover",
             minWidth: "100%",

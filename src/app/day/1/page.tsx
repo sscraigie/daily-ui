@@ -15,17 +15,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-export function Form() {
-  return (
-    <Grid
-      container
-      item
-      spacing={2}
-      sx={{ display: "flex", flexDirection: "column" }}
-    ></Grid>
-  );
-}
-
 const handleSubmit = () => {
   alert("Successful Signup!🥳");
 };

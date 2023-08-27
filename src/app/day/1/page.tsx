@@ -1,4 +1,5 @@
-//Inspiration: https://collectui.com/designers/siara/sign-up
+// Inspiration: https://collectui.com/designers/siara/sign-up
+// Time Spent: ~1hr
 "use client"; //This is for the onSubmit event, but could easily we swapped out for server actions
 import React from "react";
 import {

@@ -2,7 +2,7 @@
 
 This is a 100-day challenge to help practice frontend development.
 
-You can view all days by going to [daily-ui.spencercraigie.com](https://daily-ui.spencercraigie.com/)
+You can view all days by going to [dailyui.spencercraigie.com](https://dailyui.spencercraigie.com/)
 
 ## Table of Contents
 

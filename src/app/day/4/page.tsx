@@ -8,12 +8,14 @@ export default function Calculator() {
   const [display, setDisplay] = useState("0");
   const [operation, setOperation] = useState("");
   const [lastButton, setLastButton] = useState<string>();
+  const [lastButtonValue, setLastButtonValue] = useState<string>("");
 
   const handleClick = (value: any, type: string) => {
-    console.log({ value, type, display, result, operation });
     //Number
     if (type === "number") {
-      if (lastButton === "operation") {
+      if (lastButtonValue === "-/+" && display === "0") {
+        setDisplay((parseFloat(value) * -1).toString());
+      } else if (lastButton === "operation") {
         setDisplay(value);
       } else if (display === "0") {
         setDisplay(value);
@@ -30,6 +32,7 @@ export default function Calculator() {
         setOperation("");
       } else if (result !== undefined && operation !== "" && display !== "0") {
         doCalculation();
+        setOperation(value);
       } else if (result === undefined) {
         setResult(parseFloat(display));
         setOperation(value);
@@ -55,6 +58,7 @@ export default function Calculator() {
       }
     }
     setLastButton(type);
+    setLastButtonValue(value);
     console.log({ value, type, display, result, operation });
   };
 

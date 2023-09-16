@@ -27,6 +27,7 @@ export default function Calculator() {
       if (value === "=") {
         doCalculation();
         setResult(undefined);
+        setOperation("");
       } else if (result !== undefined && operation !== "" && display !== "0") {
         doCalculation();
       } else if (result === undefined) {

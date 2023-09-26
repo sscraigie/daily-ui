@@ -4,6 +4,8 @@ import Image from "next/image";
 import React from "react";
 import { Delete } from "@mui/icons-material";
 import CartItem from "./components/CartItem";
+// import confetti from "https://esm.run/canvas-confetti@1";
+import Confetti from "react-canvas-confetti";
 
 const ProductImg = ({
   image,
@@ -98,7 +100,7 @@ export default function Checkout() {
             text=" Wooden chair with 3 stands, super aesthetic and made to suit every modern home. Specially made with plywood fabric upholstery & cushion material. Suitable for living rooms & lounge. Available in different colors"
           />
         </div>
-        <div className="md:display-none my-5 flex h-0.5 w-full rounded bg-gray-300 "></div>
+        <div className="my-5 flex h-0.5 w-full rounded bg-gray-300 md:hidden "></div>
       </div>
       <div className="display-none flex h-full w-0.5 rounded bg-gray-300 "></div>
       {/* ---------- Cart ---------- */}
@@ -132,8 +134,16 @@ export default function Checkout() {
           <p>Total</p>
           <p>$1918.00</p>
         </div>
+        {/* <Confetti
+          // Props to control the confetti animation
+          particleCount={100}
+          spread={160}
+          // Other props...
+        /> */}
         <button
-          onClick={() => alert("Checkout successful!!")}
+          onClick={() => {
+            alert("Checkout successful!!");
+          }}
           className=" h-10  w-full rounded-md border-none bg-slate-950  text-white"
         >
           Checkout

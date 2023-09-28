@@ -5,7 +5,8 @@ import React from "react";
 import { Delete } from "@mui/icons-material";
 import CartItem from "./components/CartItem";
 // import confetti from "https://esm.run/canvas-confetti@1";
-import Confetti from "react-canvas-confetti";
+import ReactCanvasConfetti from "react-canvas-confetti";
+import Confetti from "./components/Confetti";
 
 const ProductImg = ({
   image,
@@ -51,6 +52,7 @@ const DescriptionRow = ({
 
 export default function Checkout() {
   const [image, setImage] = React.useState("main");
+  const [fireConfetti, setFireConfetti] = React.useState(false);
   return (
     <div className="border-1 full flex h-screen flex-col md:flex-row">
       {/* ---------- Product ---------- */}
@@ -140,9 +142,11 @@ export default function Checkout() {
           spread={160}
           // Other props...
         /> */}
+        {fireConfetti && <Confetti />}
         <button
           onClick={() => {
-            alert("Checkout successful!!");
+            setFireConfetti(!fireConfetti);
+            // alert("Checkout successful!!");
           }}
           className=" h-10  w-full rounded-md border-none bg-slate-950  text-white"
         >

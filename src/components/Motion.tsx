@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 /**
  * A wrapper to framer motion that animates its children.
@@ -27,7 +28,8 @@ export const Motion = ({
   yChange = 0,
   delay = 0,
   duration = 0.5,
-  whileInView = false,
+  whileInView = true,
+  animateOnce = false,
   children,
   className,
 }: {
@@ -36,19 +38,24 @@ export const Motion = ({
   duration?: number;
   delay?: number;
   whileInView?: boolean;
+  animateOnce?: boolean;
   children: React.ReactNode;
   className?: string;
 }) => {
+  const [ref, inView] = useInView();
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={"hidden"}
-      whileInView={whileInView ? "visible" : undefined}
+      whileInView={"visible"}
+      viewport={{ once: animateOnce }}
+      animate={inView || !whileInView ? "visible" : "hidden"}
       variants={{
-        visible: { opacity: 1, y: 0 },
+        visible: { opacity: 1, x: 0, y: 0 },
         hidden: { opacity: 0, x: xChange, y: yChange },
       }}
-      animate={{ opacity: 1, x: 0, y: 0 }}
       transition={{ duration: duration, delay: delay }}
     >
       {children}

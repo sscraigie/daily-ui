@@ -54,7 +54,7 @@ const Step = ({
 export const UserFlow = () => (
   <div className="max-w-5 flex flex-col p-5 md:flex-row">
     {steps.map((step) => (
-      <Step {...step} />
+      <Step key={step.emoji} {...step} />
     ))}
   </div>
 );

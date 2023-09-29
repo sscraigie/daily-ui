@@ -7,6 +7,7 @@ import Logos from "./components/Logos";
 import Testimonials from "./components/Testimonials";
 import UserFlow from "./components/UserFlow";
 import { SignUp } from "./components/SignUp";
+import Footer from "./components/Footer";
 
 export default function LandingPage() {
   return (
@@ -46,6 +47,7 @@ export default function LandingPage() {
         </Motion>
         <UserFlow />
         <SignUp />
+        <Footer />
       </div>
     </div>
   );

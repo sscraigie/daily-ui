@@ -8,7 +8,7 @@ export const Hero = () => {
   return (
     <div className="px-2 py-7">
       <Motion>
-        <h1 className="w-full text-lg font-bold text-blue-600 lg:text-2xl">
+        <h1 className="w-full text-lg font-bold text-blue-600 md:text-3xl">
           Daily Dev
         </h1>
       </Motion>
@@ -23,18 +23,18 @@ export const Hero = () => {
             layout="intrinsic"
           />
         </div>
-        <div className="w-full gap-10 p-5 text-center text-2xl sm:w-1/2">
-          <h1 className=" m-1 text-4xl font-extrabold text-red-300 lg:text-6xl">
+        <div className="w-full gap-10 text-center text-2xl sm:w-1/2">
+          <h1 className=" m-1 text-4xl font-extrabold text-red-300 md:text-6xl">
             Become a
           </h1>
-          <h1 className="m-1 whitespace-nowrap text-4xl font-extrabold text-blue-600 lg:text-6xl">
+          <h1 className="m-1 text-4xl font-extrabold text-blue-600 md:text-6xl lg:whitespace-nowrap">
             Better Developer
           </h1>
-          <h1 className="m-1 text-4xl font-extrabold text-red-300 lg:text-6xl">
+          <h1 className="m-1 text-4xl font-extrabold text-red-300 md:text-6xl">
             {" "}
             in 100 Days
           </h1>
-          <p className=" text-sm font-light text-blue-400 lg:text-lg">
+          <p className=" text-sm font-light text-blue-400 md:text-lg">
             Daily Dev is a series of
             <b className="text-blue-600"> Design Challenges</b>
             <br /> and
@@ -42,7 +42,7 @@ export const Hero = () => {
             everyday.
           </p>
           <a href="https://www.dailyui.co/#signup">
-            <button className=" text-bold rounded-md border-none bg-blue-600 p-3 px-7 text-center font-extrabold text-white lg:text-lg">
+            <button className=" text-bold rounded-md border-none bg-blue-600 p-3 px-7 text-center font-extrabold text-white md:text-lg">
               Get Started for Free
             </button>
           </a>

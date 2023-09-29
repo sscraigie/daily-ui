@@ -6,14 +6,18 @@ import { HeroImage } from "./HeroImage";
 
 export const Hero = () => {
   return (
-    <div className="px-2 py-7">
+    <div className="w-full px-2 py-7">
       <Motion>
-        <h1 className="w-full text-lg font-bold text-blue-600 md:text-3xl">
+        <h1 className="pl- text-lg font-bold text-blue-600 md:text-3xl">
           Daily Dev
         </h1>
       </Motion>
-      <Motion yChange={25} delay={0.5} className="flex w-full">
-        <div className="hidden items-center justify-center p-5 pt-16 sm:flex  sm:w-1/2 ">
+      <Motion
+        yChange={25}
+        delay={0.5}
+        className="flex w-full justify-between pt-16"
+      >
+        <div className="hidden items-center justify-center p-5 sm:flex  sm:w-1/2 ">
           <Image
             className="duration-200 hover:-rotate-12"
             src="/d3/hero.jpg"
@@ -31,7 +35,6 @@ export const Hero = () => {
             Better Developer
           </h1>
           <h1 className="m-1 text-4xl font-extrabold text-red-300 md:text-6xl">
-            {" "}
             in 100 Days
           </h1>
           <p className=" text-sm font-light text-blue-400 md:text-lg">

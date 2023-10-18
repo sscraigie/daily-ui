@@ -39,7 +39,7 @@ export const SignUp = () => {
           <input
             type="email"
             placeholder="Email address..."
-            className="h-10 appearance-none  rounded-xl border border-blue-400 px-5 text-blue-400 placeholder:text-blue-400 focus:border-blue-600 focus:outline-none"
+            className="h-10 appearance-none border-solid rounded-xl border border-blue-400 px-5 text-blue-400 placeholder:text-blue-400 focus:border-blue-600 focus:outline-none"
           />
 
           <button className="text-bold md:text-md h-10 rounded-xl border-none bg-blue-600 px-7 text-center font-extrabold text-white active:border-blue-600">

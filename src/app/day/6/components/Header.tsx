@@ -8,7 +8,7 @@ export const Header = () => {
         {/* Top */}
         <div className="flex items-center justify-between p-2">
           <div className="flex items-center gap-3">
-            <button className="h-9 w-9 rounded border border-solid border-[#7e8590] bg-transparent fill-[#7e8590] hover:border-white ">
+            <button className="h-9 w-9 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590] hover:border-white ">
               <svg
                 aria-hidden="true"
                 height="16"
@@ -36,7 +36,7 @@ export const Header = () => {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#7e8590] bg-transparent fill-[#7e8590]  hover:bg-[#181b20] ">
+            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]  hover:bg-[#181b20] ">
               <svg
                 aria-hidden="true"
                 height="16"
@@ -49,7 +49,7 @@ export const Header = () => {
                 <path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path>
               </svg>
             </button>
-            <button className="hover:background-[#181b20] h-7 w-14 rounded border border-solid border-[#7e8590] bg-transparent fill-[#7e8590]  hover:border-white hover:bg-[#181b20] ">
+            <button className="hover:background-[#181b20] h-7 w-14 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]  hover:border-white hover:bg-[#181b20] ">
               {" "}
               <span className="flex justify-around">
                 <svg
@@ -77,7 +77,7 @@ export const Header = () => {
                 </span>
               </span>
             </button>
-            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#7e8590] bg-transparent fill-[#7e8590]  hover:border-white hover:bg-[#181b20] ">
+            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]  hover:border-white hover:bg-[#181b20] ">
               {" "}
               <svg
                 aria-hidden="true"
@@ -92,7 +92,7 @@ export const Header = () => {
                 <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
               </svg>
             </button>
-            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#7e8590] bg-transparent fill-[#7e8590]  hover:border-white hover:bg-[#181b20] ">
+            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]  hover:border-white hover:bg-[#181b20] ">
               {" "}
               <svg
                 aria-hidden="true"
@@ -106,7 +106,7 @@ export const Header = () => {
                 <path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path>
               </svg>
             </button>
-            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#7e8590] bg-transparent fill-[#7e8590]  hover:border-white hover:bg-[#181b20] ">
+            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]  hover:border-white hover:bg-[#181b20] ">
               {" "}
               <svg
                 aria-hidden="true"

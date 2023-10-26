@@ -6,6 +6,7 @@ import { PinnedSection } from "./components/PinnedSection";
 
 // Border: border-[#7e8590]
 // Icon: fill-[#7e8590]
+// Button Border: border-[#31363d]
 
 //subtext: text-[#747b85]
 export const Github = () => {

@@ -7,14 +7,9 @@ import { HeroImage } from "./HeroImage";
 export const Hero = () => {
   return (
     <div className="w-full px-2 py-7">
-      <Motion>
-        <h1 className="pl- text-lg font-bold text-blue-600 md:text-3xl">
-          Daily Dev
-        </h1>
-      </Motion>
       <Motion
         yChange={25}
-        delay={0.5}
+        delay={0.1}
         className="flex w-full justify-between pt-16"
       >
         <div className="hidden items-center justify-center p-5 sm:flex  sm:w-1/2 ">

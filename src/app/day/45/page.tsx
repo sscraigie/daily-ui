@@ -5,7 +5,7 @@ export const InfoCard = (props: { day: number; title: string }) => {
   return (
     <Link
       href={`/day/${props.day}`}
-      className=" flex h-60 w-80 appearance-none flex-col justify-between rounded-md bg-white no-underline shadow-md transition hover:scale-105"
+      className=" flex h-60 w-80 appearance-none flex-col justify-between rounded-md bg-white no-underline shadow-lg shadow-slate-400 transition hover:scale-105"
     >
       <img
         alt={props.day}
@@ -28,10 +28,12 @@ export const InfoCard = (props: { day: number; title: string }) => {
   );
 };
 
-// {/* <a href={`/day/${props.day}`} className="h-60 w-60 rounded-md bg-slate-100">
-// {/* <Image src={`/1.png`} alt={"Preview"} width={80} height={80} /> */}
-// <div className="p-2">
-//   <h3 className="">Day {props.day}</h3>
-//   <p className="">{props.title}</p>
-// </div>
-// </a> */}
+const Page = () => {
+  return (
+    <div className="flex items-center justify-center p-20">
+      <InfoCard day={1} title="Sign Up"></InfoCard>
+    </div>
+  );
+};
+
+export default Page;

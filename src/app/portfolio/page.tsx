@@ -1,7 +1,7 @@
 import React from "react";
 import { InfoCard } from "../day/45/page";
 
-export const DAYS = [
+const DAYS = [
   { day: 1, title: "Sign Up" },
   { day: 2, title: "Checkout" },
   { day: 3, title: "Landing Page" },
@@ -11,7 +11,7 @@ export const DAYS = [
   { day: 45, title: "InfoCard" },
 ];
 
-export const Portfolio = () => {
+const Portfolio = () => {
   return (
     <div className="flex h-full w-full justify-center ">
       <div className="m-0 w-full max-w-5xl ">

@@ -26,7 +26,7 @@ export const FooterRow = ({
   );
 };
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <div className="p-5">
       <div className="flex flex-col justify-around sm:flex-row">

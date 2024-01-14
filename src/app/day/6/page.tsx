@@ -10,7 +10,7 @@ import { Footer } from "./components/Footer";
 // Button Border: border-[#31363d]
 
 //subtext: text-[#747b85]
-export const Github = () => {
+const Github = () => {
   return (
     <div className="flex h-screen flex-col bg-[#0e1117]">
       <Header />

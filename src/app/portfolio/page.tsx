@@ -8,6 +8,7 @@ const DAYS = [
   { day: 4, title: "Calculator" },
   { day: 5, title: "App Icon" },
   { day: 6, title: "User Profile" },
+  { day: 8, title: "404 Page" },
   { day: 45, title: "InfoCard" },
 ];
 

@@ -32,6 +32,7 @@ export const Motion = ({
   animateOnce = false,
   children,
   className,
+  onClick,
 }: {
   xChange?: number;
   yChange?: number;
@@ -41,11 +42,15 @@ export const Motion = ({
   animateOnce?: boolean;
   children: React.ReactNode;
   className?: string;
+  onClick?: () => any;
 }) => {
   const [ref, inView] = useInView();
 
   return (
     <motion.div
+      onClick={() => {
+        onClick && onClick();
+      }}
       ref={ref}
       className={className}
       initial={"hidden"}

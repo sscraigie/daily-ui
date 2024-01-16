@@ -10,6 +10,7 @@ const DAYS = [
   { day: 6, title: "User Profile" },
   { day: 8, title: "404 Page" },
   { day: 11, title: "Flash Message" },
+  { day: 15, title: "Toggle" },
   { day: 45, title: "InfoCard" },
 ];
 

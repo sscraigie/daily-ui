@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { InfoCard } from "../day/45/page";
 
 const DAYS = [
@@ -169,12 +171,31 @@ const DAYS = [
 ];
 
 const Portfolio = () => {
+  const [query, setQuery] = useState("");
+
+  const filteredDays = DAYS.filter((day) => {
+    const search = query.trim().toLowerCase();
+    if (!search) return true;
+    return (
+      day.title.toLowerCase().includes(search) ||
+      String(day.day).includes(search)
+    );
+  });
+
   return (
     <div className="flex h-full w-full justify-center ">
       <div className="m-0 w-full max-w-5xl ">
-        <h1 className="m-0 p-10">Portfolio</h1>
-        <div className="flex max-w-5xl flex-wrap justify-center gap-5">
-          {DAYS.map((day) => (
+        <div className="flex justify-center p-10 pb-0">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by day or title..."
+            className="w-full max-w-md rounded-full border border-black px-5 py-2 font-sans text-sm outline-none focus:border-black dark:bg-gray-900 dark:text-gray-100"
+          />
+        </div>
+        <div className="flex max-w-5xl flex-wrap justify-center gap-5 pt-10">
+          {filteredDays.map((day) => (
             <InfoCard key={day.day} day={day.day} title={day.title} />
           ))}
         </div>

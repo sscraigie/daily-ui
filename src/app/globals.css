@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Preflight is disabled in tailwind.config.ts (to avoid resetting default
+   element styling across the day pages), but we still need box-sizing:
+   border-box globally - otherwise elements that combine an explicit width
+   (e.g. w-full) with padding will render wider than intended and cause
+   horizontal overflow on mobile. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <nav className="flex  w-full justify-between shadow">
+    <nav className="flex w-full justify-between shadow">
       <Link href="/" className="no-underline">
         <h1 className="m-0 p-3 px-10 font-sans text-2xl font-bold text-blue-600 no-underline md:text-3xl">
           Daily Dev

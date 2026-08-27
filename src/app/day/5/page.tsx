@@ -95,15 +95,14 @@ const AppIcon = ({
         type: "spring",
         stiffness: 120,
       }}
-      className="flex flex-col items-center gap-2"
+      className="flex flex-col items-center gap-2 relative"
     >
       <motion.div
         onHoverStart={() => setHovered(true)}
         onHoverEnd={() => setHovered(false)}
         animate={hovered ? { y: -8, scale: 1.08 } : { y: 0, scale: 1 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="relative cursor-pointer select-none"
-        style={{ width: 96, height: 96 }}
+        className="relative cursor-pointer select-none w-20 h-20 sm:w-24 sm:h-24"
       >
         {/* Shadow layer */}
         <motion.div
@@ -138,9 +137,8 @@ const AppIcon = ({
           />
           {/* Symbol */}
           <span
-            className="text-white select-none relative"
+            className="text-white select-none relative text-3xl sm:text-4xl"
             style={{
-              fontSize: 38,
               textShadow: "0 2px 12px rgba(0,0,0,0.18)",
               zIndex: 3,
               fontFamily: "system-ui, sans-serif",
@@ -185,7 +183,7 @@ const AppIcon = ({
       <motion.p
         animate={hovered ? { opacity: 0.85, y: 0 } : { opacity: 0, y: 4 }}
         transition={{ duration: 0.2 }}
-        className="text-xs text-gray-400 m-0 -mt-1 whitespace-nowrap"
+        className="text-xs text-gray-400 m-0 -mt-1 whitespace-nowrap absolute top-full pointer-events-none"
       >
         {icon.description}
       </motion.p>
@@ -286,7 +284,7 @@ export default function Day5() {
       </motion.div>
 
       {/* Icons grid */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-x-6 gap-y-6 max-w-2xl">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-x-3 sm:gap-x-6 gap-y-6 max-w-2xl w-full">
         {filtered.length > 0 ? (
           filtered.map((icon, i) => (
             <AppIcon key={icon.id} icon={icon} index={i} />
@@ -307,7 +305,7 @@ export default function Day5() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
-        className="mt-8 flex gap-5 px-7 py-3.5 rounded-3xl items-center"
+        className="mt-8 flex gap-3 px-4 py-3 sm:gap-5 sm:px-7 sm:py-3.5 rounded-3xl items-center max-w-full"
         style={{
           background: "rgba(255,255,255,0.65)",
           backdropFilter: "blur(20px)",
@@ -321,8 +319,7 @@ export default function Day5() {
             whileHover={{ scale: 1.2, y: -6 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 18 }}
-            className="relative cursor-pointer"
-            style={{ width: 52, height: 52 }}
+            className="relative cursor-pointer w-11 h-11 sm:w-[52px] sm:h-[52px]"
           >
             <div
               className="absolute inset-0 rounded-[14px] blur-lg opacity-40"

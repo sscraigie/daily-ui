@@ -22,7 +22,7 @@ const handleSubmit = () => {
 
 export default function Day1() {
   return (
-    <Grid container sx={{ width: "100vw", height: "100vh" }}>
+    <Grid container sx={{ width: "100vw", height: "100%" }}>
       <Grid
         container
         xs={12}

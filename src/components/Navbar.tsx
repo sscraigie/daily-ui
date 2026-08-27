@@ -3,16 +3,16 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <nav className="flex w-full justify-between shadow">
+    <nav className="flex w-full justify-between shadow dark:bg-gray-950">
       <Link href="/" className="no-underline">
-        <h1 className="m-0 p-3 px-10 font-sans text-2xl font-bold text-blue-600 no-underline md:text-3xl">
+        <h1 className="m-0 p-3 px-10 font-sans text-2xl font-bold text-blue-600 no-underline dark:text-blue-400 md:text-3xl">
           Daily Dev
         </h1>
       </Link>
 
       <Link
         href="/portfolio"
-        className="m-0 h-full px-10 pt-5 align-text-bottom font-sans text-sm text-gray-600 no-underline md:text-base"
+        className="m-0 h-full px-10 pt-5 align-text-bottom font-sans text-sm text-gray-600 no-underline dark:text-gray-300 md:text-base"
       >
         Portfolio
       </Link>

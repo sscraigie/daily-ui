@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Navbar";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -52,9 +53,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={"flex h-screen flex-col " + inter.className}>
-        <Navbar />
-        <div className="flex flex-1 flex-col ">{children}</div>
+      <body className={"flex h-screen flex-col dark:bg-gray-950 " + inter.className}>
+        <ThemeProvider>
+          <Navbar />
+          <div className="flex flex-1 flex-col ">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );

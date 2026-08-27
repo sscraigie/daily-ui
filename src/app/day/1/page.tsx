@@ -36,8 +36,13 @@ export default function Day1() {
         }}
         item
       >
-        <Typography variant="h5">Welcome!</Typography>
-        <Typography variant="subtitle2">
+        <Typography variant="h4" sx={{ fontWeight: 700, letterSpacing: -0.5 }}>
+          Welcome!
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          sx={{ color: "text.secondary", fontWeight: 400 }}
+        >
           Sign in by entering the information below
         </Typography>
         <Stack component="form" spacing={2} sx={{ padding: 5, width: "80%" }}>
@@ -59,11 +64,17 @@ export default function Day1() {
           <Button
             onClick={handleSubmit}
             variant="contained"
-            sx={{ textTransform: "none", backgroundColor: "#6ba1f6" }}
+            sx={{
+              textTransform: "none",
+              backgroundColor: "#6ba1f6",
+              fontWeight: 600,
+              fontSize: "1rem",
+              py: 1.25,
+            }}
           >
             Continue
           </Button>
-          <Typography>
+          <Typography variant="body2" sx={{ fontWeight: 500 }}>
             Don&apos;t have an account?
             <Link href={"/sign-up"}> Create one here.</Link>
           </Typography>
@@ -73,19 +84,18 @@ export default function Day1() {
         md={6}
         sx={{
           display: { xs: "none", md: "block" },
+          position: "relative",
           width: "50vw",
           p: 1,
         }}
       >
         <Image
-          width={100}
-          height={100}
+          fill
+          quality={100}
+          sizes="50vw"
+          priority
           style={{
             objectFit: "cover",
-            minWidth: "100%",
-            maxWidth: "100%",
-            minHeight: "100%",
-            maxHeight: "100%",
           }}
           alt="hills"
           src="/d1/hills.png"

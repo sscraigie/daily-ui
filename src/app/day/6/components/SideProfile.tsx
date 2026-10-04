@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const SideProfile = () => {
   return (
-    <aside className="flex w-full shrink-0 flex-col lg:w-[296px]">
+    <aside className="flex w-full shrink-0 flex-col md:w-[296px]">
       <div className="relative w-fit">
         <Image
           className="rounded-full border border-[#31363d]"

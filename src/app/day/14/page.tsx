@@ -209,7 +209,7 @@ export default function Day14() {
               className="text-center"
             >
               <div className="text-7xl mb-4">🎉</div>
-              <h3 className="text-white text-3xl font-black m-0">It's here!</h3>
+              <h3 className="text-white text-3xl font-black m-0">It&apos;s here!</h3>
               <p className="text-indigo-300 text-base mt-2 m-0">The moment has arrived</p>
             </motion.div>
           ) : (

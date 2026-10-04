@@ -39,7 +39,7 @@ const levels = Array.from({ length: WEEKS }, (_, week) =>
   Array.from({ length: DAYS }, (_, day) => levelFor(week, day)),
 );
 
-const total = levels.flat().reduce((sum, level) => sum + level, 0);
+const total = levels.flat().reduce((sum: number, level) => sum + level, 0);
 
 export const ActivityChart = () => {
   return (

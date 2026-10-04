@@ -18,7 +18,7 @@ const Github = () => {
     <div className="flex min-h-screen flex-col bg-[#0e1117]">
       <RequireDarkMode />
       <Header />
-      <main className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col gap-8 px-4 py-6 lg:flex-row lg:gap-6">
+      <main className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col gap-8 px-4 py-6 md:flex-row md:gap-6">
         <SideProfile />
         <div className="flex min-w-0 flex-1 flex-col gap-8">
           <PinnedSection />

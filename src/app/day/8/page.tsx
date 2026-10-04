@@ -5,24 +5,24 @@ import Image from "next/image";
 const PageNotFound = () => {
   return (
     <div className="flex h-full w-full items-center justify-center">
-      <div className="flex h-96 w-full max-w-4xl flex-col items-center justify-around p-5">
-        <div className="flex items-center justify-around gap-10 ">
+      <div className="flex min-h-96 w-full max-w-4xl flex-col items-center justify-center gap-8 p-5">
+        <div className="flex flex-col items-center gap-4 text-center md:flex-row md:gap-10">
           <div className="flex flex-col gap-7">
-            <h1 className="m-0 text-9xl">404</h1>
-            <h2 className="m-0 text-3xl">Page Not Found</h2>
+            <h1 className="m-0 text-7xl sm:text-8xl md:text-9xl">404</h1>
+            <h2 className="m-0 text-xl md:text-3xl">Page Not Found</h2>
           </div>
           <UfoSvg />
         </div>
-        <div className="flex items-center justify-around gap-10 p-5">
-          <Link href="/">
+        <div className="flex w-full flex-col items-center justify-center gap-3 p-5 sm:flex-row sm:gap-10">
+          <Link href="/" className="w-full sm:w-auto">
             {/* text-bold rounded-md border-none bg-blue-600 p-3 px-7 text-center
             font-extrabold text-white md:text-lg */}
-            <button className="text-bold whitespace-nowrap rounded-full border-none bg-blue-600 p-2 px-4 text-lg text-white shadow hover:scale-105 hover:bg-blue-700">
+            <button className="text-bold w-full whitespace-nowrap rounded-full border-none bg-blue-600 p-2 px-4 text-lg text-white shadow hover:scale-105 hover:bg-blue-700 sm:w-auto">
               Go Home
             </button>
           </Link>
-          <Link href="/portfolio">
-            <button className="text-bold whitespace-nowrap rounded-full border-none bg-slate-200 p-2 px-4 text-lg hover:scale-105 hover:bg-slate-300">
+          <Link href="/portfolio" className="w-full sm:w-auto">
+            <button className="text-bold w-full whitespace-nowrap rounded-full border-none bg-slate-200 p-2 px-4 text-lg hover:scale-105 hover:bg-slate-300 sm:w-auto">
               Checkout Portfolio
             </button>
           </Link>
@@ -40,7 +40,7 @@ const UfoSvg = () => {
       width="672.5315"
       height="738.39398"
       viewBox="0 0 672.5315 738.39398"
-      className="h-52 w-52 rotate-3"
+      className="h-44 w-44 rotate-3 md:h-52 md:w-52"
     >
       <path
         d="M730.73425,230.607c-46.62012-7.44-99.71-11.41-155-11.41-50.6001,0-99.3501,3.32-142.98,9.58.01026-.67005.02-1.34.04981-2.01a148.99943,148.99943,0,0,1,297.91015,1.82C730.72449,229.267,730.73425,229.937,730.73425,230.607Z"

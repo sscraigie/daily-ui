@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { InfoCard } from "../day/45/page";
+import { InfoCard } from "@/components/InfoCard";
 
 const DAYS = [
   { day: 1, title: "Sign Up" },

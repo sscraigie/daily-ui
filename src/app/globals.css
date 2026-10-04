@@ -13,14 +13,16 @@
   box-sizing: border-box;
 }
 
-/* Preflight is disabled, so native <button> chrome would leak through on
-   every page - most visibly Chrome's 2px outset border, which renders as a
-   half-light/half-dark bevel on rounded buttons. Reset it once here so
-   buttons start from a flat, borderless base everywhere and pages don't
-   each have to remember border-none. Explicit border utilities still work:
-   the solid style base means border-2 etc. apply directly. */
+/* Native <button> chrome (white `buttonface` background, beveled outset
+   border) leaks through on dark pages. Reset it once here so buttons start
+   from a flat, borderless base everywhere, whether or not preflight is
+   enabled in tailwind.config.ts. Pages that want a visible border opt back
+   in with Tailwind's border utilities (e.g. `border border-solid
+   border-[#31363d]`); the solid style base means border-2 etc. apply
+   directly. */
 button {
   appearance: none;
+  background-color: transparent;
   border: 0 solid;
   -webkit-tap-highlight-color: transparent;
 }

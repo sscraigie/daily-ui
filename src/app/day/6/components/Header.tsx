@@ -6,8 +6,8 @@ const Header = () => {
     <div className="bg-black p-2">
       <div>
         {/* Top */}
-        <div className="flex items-center justify-between p-2">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between gap-2 p-2">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button className="h-9 w-9 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]">
               <svg
                 aria-hidden="true"
@@ -31,12 +31,12 @@ const Header = () => {
             >
               <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
             </svg>
-            <div className="text-bold rounded p-2 text-white hover:bg-[#181b20]">
+            <div className="hidden rounded p-2 font-semibold text-white hover:bg-[#181b20] sm:block">
               sscraigie
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]  hover:bg-[#181b20] ">
+          <div className="flex items-center gap-1.5 sm:gap-3">
+            <button className="hidden h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590] hover:bg-[#181b20] min-[360px]:block">
               <svg
                 aria-hidden="true"
                 height="16"
@@ -44,12 +44,12 @@ const Header = () => {
                 version="1.1"
                 width="16"
                 data-view-component="true"
-                className=""
               >
                 <path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path>
               </svg>
             </button>
-            <button className="hover:background-[#181b20] h-7 w-14 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]  hover:bg-[#181b20] ">
+            <span className="hidden h-5 w-px bg-[#31363d] sm:block" />
+            <button className="h-7 w-12 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590] hover:bg-[#181b20] sm:w-14">
               {" "}
               <span className="flex justify-around">
                 <svg
@@ -77,7 +77,7 @@ const Header = () => {
                 </span>
               </span>
             </button>
-            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]  hover:bg-[#181b20] ">
+            <button className="h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590] hover:bg-[#181b20]">
               {" "}
               <svg
                 aria-hidden="true"
@@ -92,7 +92,7 @@ const Header = () => {
                 <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"></path>
               </svg>
             </button>
-            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]   hover:bg-[#181b20] ">
+            <button className="h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590] hover:bg-[#181b20]">
               {" "}
               <svg
                 aria-hidden="true"
@@ -106,7 +106,7 @@ const Header = () => {
                 <path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path>
               </svg>
             </button>
-            <button className="hover:background-[#181b20] h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590]   hover:bg-[#181b20] ">
+            <button className="relative h-7 w-7 rounded border border-solid border-[#31363d] bg-transparent fill-[#7e8590] hover:border-[#7e8590] hover:bg-[#181b20]">
               {" "}
               <svg
                 aria-hidden="true"
@@ -119,6 +119,7 @@ const Header = () => {
               >
                 <path d="M2.8 2.06A1.75 1.75 0 0 1 4.41 1h7.18c.7 0 1.333.417 1.61 1.06l2.74 6.395c.04.093.06.194.06.295v4.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25v-4.5c0-.101.02-.202.06-.295Zm1.61.44a.25.25 0 0 0-.23.152L1.887 8H4.75a.75.75 0 0 1 .6.3L6.625 10h2.75l1.275-1.7a.75.75 0 0 1 .6-.3h2.863L11.82 2.652a.25.25 0 0 0-.23-.152Zm10.09 7h-2.875l-1.275 1.7a.75.75 0 0 1-.6.3h-3.5a.75.75 0 0 1-.6-.3L4.375 9.5H1.5v3.75c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Z"></path>
               </svg>
+              <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-[#4c81f9]" />
             </button>
             <Image
               className="rounded-full"
@@ -130,8 +131,8 @@ const Header = () => {
           </div>
         </div>
         {/* Bottom */}
-        <div className="flex items-center gap-2 pl-2">
-          <button className="flex items-end gap-2 border-b-2 border-l-0 border-r-0 border-t-0 border-orange-500 bg-transparent p-2 hover:bg-[#181b20]">
+        <div className="flex items-center gap-2 overflow-x-auto pl-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <button className="flex shrink-0 items-center gap-2 whitespace-nowrap border-b-2 border-l-0 border-r-0 border-t-0 border-[#f78166] bg-transparent p-2 hover:bg-[#181b20]">
             <svg
               aria-hidden="true"
               height="16"
@@ -145,7 +146,7 @@ const Header = () => {
             </svg>
             <span className="text-white">Overview</span>
           </button>
-          <button className="flex items-end gap-2 rounded border-none bg-transparent p-2 hover:bg-[#181b20]">
+          <button className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded border-none bg-transparent p-2 hover:bg-[#181b20]">
             <svg
               aria-hidden="true"
               height="16"
@@ -158,11 +159,11 @@ const Header = () => {
               <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"></path>
             </svg>
             <span className="text-white">Repositories</span>
-            <span className="w-5 rounded-full bg-[#3b3f47] p-0.5 text-white">
-              21
+            <span className="w-5 rounded-full bg-[#3b3f47] p-0.5 text-center text-xs text-white">
+              24
             </span>
           </button>
-          <button className="flex items-end gap-2 rounded border-none bg-transparent p-2 hover:bg-[#181b20]">
+          <button className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded border-none bg-transparent p-2 hover:bg-[#181b20]">
             <svg
               aria-hidden="true"
               height="16"
@@ -176,7 +177,7 @@ const Header = () => {
             </svg>
             <span className="text-white">Projects</span>
           </button>
-          <button className="flex items-end gap-2 rounded border-none bg-transparent p-2 hover:bg-[#181b20]">
+          <button className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded border-none bg-transparent p-2 hover:bg-[#181b20]">
             <svg
               aria-hidden="true"
               height="16"
@@ -190,7 +191,7 @@ const Header = () => {
             </svg>
             <span className="text-white">Packages</span>
           </button>
-          <button className="flex items-end gap-2 rounded border-none bg-transparent p-2 hover:bg-[#181b20]">
+          <button className="flex shrink-0 items-center gap-2 whitespace-nowrap rounded border-none bg-transparent p-2 hover:bg-[#181b20]">
             <svg
               aria-hidden="true"
               height="16"
@@ -203,8 +204,8 @@ const Header = () => {
               <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path>
             </svg>
             <span className="text-white">Stars</span>
-            <span className="w-5 rounded-full bg-[#3b3f47] p-0.5 text-white">
-              21
+            <span className="w-5 rounded-full bg-[#3b3f47] p-0.5 text-center text-xs text-white">
+              20
             </span>
           </button>
         </div>

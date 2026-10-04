@@ -1,8 +1,11 @@
 import React from "react";
 
+import { RequireDarkMode } from "@/components/ThemeProvider";
+
 import Header from "./components/Header";
 import SideProfile from "./components/SideProfile";
 import { PinnedSection } from "./components/PinnedSection";
+import { ActivityChart } from "./components/ActivityChart";
 import { Footer } from "./components/Footer";
 
 // Border: border-[#7e8590]
@@ -12,14 +15,16 @@ import { Footer } from "./components/Footer";
 //subtext: text-[#747b85]
 const Github = () => {
   return (
-    <div className="flex h-screen flex-col bg-[#0e1117]">
+    <div className="flex min-h-screen flex-col bg-[#0e1117]">
+      <RequireDarkMode />
       <Header />
-      <div className="flex h-96">
+      <main className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col gap-8 px-4 py-6 lg:flex-row lg:gap-6">
         <SideProfile />
-        <div className="w-full p-2">
+        <div className="flex min-w-0 flex-1 flex-col gap-8">
           <PinnedSection />
+          <ActivityChart />
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );

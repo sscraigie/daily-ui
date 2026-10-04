@@ -25,7 +25,7 @@ export const Footer = () => {
     "Security",
     "Status",
     "Docs",
-    "Contact Github",
+    "Contact GitHub",
     "Pricing",
     "API",
     "Training",
@@ -39,7 +39,7 @@ export const Footer = () => {
           <GithubLogo />
           <p className="text-xs text-[#7e8590]">© 2023 GitHub, Inc.</p>
         </div>
-        <div className="flex gap-5">
+        <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
           {links.map((link) => (
             <a
               key={link}

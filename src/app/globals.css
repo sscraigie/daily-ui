@@ -13,6 +13,19 @@
   box-sizing: border-box;
 }
 
+/* Browsers give <button> default chrome (a white `buttonface` background and
+   a beveled `outset` border) whenever preflight is toggled off in
+   tailwind.config.ts, which looks broken on dark pages. Neutralize just
+   that globally: buttons start transparent and borderless, and pages that
+   want a visible border opt back in with Tailwind's border utilities
+   (e.g. `border border-solid border-[#31363d]`). */
+button {
+  appearance: none;
+  background-color: transparent;
+  border-width: 0;
+  border-style: solid;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

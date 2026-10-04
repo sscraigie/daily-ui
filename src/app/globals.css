@@ -13,6 +13,18 @@
   box-sizing: border-box;
 }
 
+/* Preflight is disabled, so native <button> chrome would leak through on
+   every page - most visibly Chrome's 2px outset border, which renders as a
+   half-light/half-dark bevel on rounded buttons. Reset it once here so
+   buttons start from a flat, borderless base everywhere and pages don't
+   each have to remember border-none. Explicit border utilities still work:
+   the solid style base means border-2 etc. apply directly. */
+button {
+  appearance: none;
+  border: 0 solid;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

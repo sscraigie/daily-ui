@@ -1,49 +1,48 @@
-import React, { useState } from "react";
-import { Grid, Typography, Button } from "@mui/material";
+"use client";
 
-const CalcButton = ({
-  value,
-  type,
-}: {
-  value: string;
-  type: "number" | "operation" | "action";
-}) => {
-  let buttonColor;
-  let textColor = "white";
+import React from "react";
 
-  switch (type) {
-    case "number":
-      buttonColor = "#393939";
-      break;
-    case "operation":
-      buttonColor = "#f09a36";
-      break;
-    case "action":
-      buttonColor = "#a8a8a8";
-      textColor = "black";
-      break;
-    default:
-      break;
-  }
+type Variant = "digit" | "function" | "operator";
 
-  return (
-    <Grid item xs={3}>
-      <Button
-        sx={{
-          borderRadius: "50%",
-          width: "65px",
-          height: "65px",
-          backgroundColor: buttonColor,
-          color: textColor,
-        }}
-        // onClick={() => doCalculation(value)}
-      >
-        <Typography variant="h6" fontWeight="bold">
-          {value}
-        </Typography>
-      </Button>
-    </Grid>
-  );
+const variantClasses: Record<Variant, string> = {
+  digit: "bg-[#333333] text-white active:bg-[#737373]",
+  function: "bg-[#a5a5a5] text-black active:bg-[#e3e3e3]",
+  operator: "bg-[#ff9f0a] text-white active:bg-[#ffc46b]",
 };
 
-export default CalcButton;
+type CalcButtonProps = {
+  label: string;
+  onPress: () => void;
+  variant?: Variant;
+  highlighted?: boolean;
+  wide?: boolean;
+  ariaLabel?: string;
+};
+
+export const CalcButton = ({
+  label,
+  onPress,
+  variant = "digit",
+  highlighted = false,
+  wide = false,
+  ariaLabel,
+}: CalcButtonProps) => {
+  return (
+    <button
+      type="button"
+      onClick={onPress}
+      aria-label={ariaLabel ?? label}
+      className={[
+        "flex select-none items-center rounded-full text-3xl leading-none transition-colors duration-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/60 active:duration-0 md:text-[32px]",
+        wide
+          ? "col-span-2 aspect-[2.15/1] justify-start pl-[17%]"
+          : "aspect-square justify-center",
+        highlighted
+          ? "bg-white text-[#ff9f0a] active:bg-white/70"
+          : variantClasses[variant],
+      ].join(" ")}
+    >
+      {label}
+    </button>
+  );
+};

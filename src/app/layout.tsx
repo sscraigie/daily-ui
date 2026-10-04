@@ -53,7 +53,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={"flex h-screen flex-col dark:bg-gray-950 " + inter.className}>
+      <body
+        className={
+          "flex h-screen flex-col supports-[height:100dvh]:h-[100dvh] dark:bg-gray-950 " +
+          inter.className
+        }
+      >
         <ThemeProvider>
           <Navbar />
           <div className="flex flex-1 flex-col ">{children}</div>

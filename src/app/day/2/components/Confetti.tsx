@@ -1,65 +1,48 @@
-//@ts-nocheck
-import { useCallback, useEffect, useRef } from "react";
+"use client";
 
+import React, { useCallback, useEffect, useRef } from "react";
 import ReactCanvasConfetti from "react-canvas-confetti";
+import type { CreateTypes, Options } from "canvas-confetti";
 
 export default function Confetti() {
-  const refAnimationInstance = useRef(null);
-
-  const getInstance = useCallback((instance: any) => {
-    refAnimationInstance.current = instance;
-  }, []);
-
-  const makeShot = useCallback((particleRatio: any, opts: any) => {
-    refAnimationInstance.current &&
-      refAnimationInstance.current({
-        ...opts,
-        origin: { y: 0.7 },
-        particleCount: Math.floor(200 * particleRatio),
-      });
-  }, []);
-
-  useEffect(() => fire(), []);
+  const confettiRef = useRef<CreateTypes | null>(null);
 
   const fire = useCallback(() => {
-    makeShot(0.25, {
-      spread: 26,
-      startVelocity: 55,
-    });
+    const confetti = confettiRef.current;
+    if (!confetti) return;
 
-    makeShot(0.2, {
-      spread: 60,
-    });
+    const shot = (ratio: number, options: Options) => {
+      confetti({
+        ...options,
+        origin: { y: 0.7 },
+        particleCount: Math.floor(200 * ratio),
+      });
+    };
 
-    makeShot(0.35, {
-      spread: 100,
-      decay: 0.91,
-      scalar: 0.8,
-    });
+    shot(0.25, { spread: 26, startVelocity: 55 });
+    shot(0.2, { spread: 60 });
+    shot(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+    shot(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+    shot(0.1, { spread: 120, startVelocity: 45 });
+  }, []);
 
-    makeShot(0.1, {
-      spread: 120,
-      startVelocity: 25,
-      decay: 0.92,
-      scalar: 1.2,
-    });
-
-    makeShot(0.1, {
-      spread: 120,
-      startVelocity: 45,
-    });
-  }, [makeShot]);
+  useEffect(() => {
+    fire();
+    return () => confettiRef.current?.reset();
+  }, [fire]);
 
   return (
     <ReactCanvasConfetti
-      refConfetti={getInstance}
+      refConfetti={(instance) => {
+        confettiRef.current = instance;
+      }}
       style={{
         position: "fixed",
-        pointerEvents: "none",
+        inset: 0,
         width: "100%",
         height: "100%",
-        top: 0,
-        left: 0,
+        pointerEvents: "none",
+        zIndex: 50,
       }}
     />
   );

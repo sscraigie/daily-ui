@@ -61,7 +61,10 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <Navbar />
-          <div className="flex flex-1 flex-col ">{children}</div>
+          {/* min-h-0 lets this flex item shrink to the available height, so
+            day pages that fill the viewport (h-full + internal scroll) work
+            instead of growing to their content height. */}
+        <div className="flex min-h-0 flex-1 flex-col">{children}</div>
         </ThemeProvider>
       </body>
     </html>

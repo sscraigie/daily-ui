@@ -83,12 +83,8 @@ export default function Checkout() {
   const setQuantity = (product: Product, quantity: number) => {
     setQuantities((prev) => ({
       ...prev,
-      [product.id]: Math.min(MAX_QUANTITY, Math.max(1, quantity)),
+      [product.id]: Math.min(MAX_QUANTITY, Math.max(0, quantity)),
     }));
-  };
-
-  const removeLine = (product: Product) => {
-    setQuantities((prev) => ({ ...prev, [product.id]: 0 }));
   };
 
   const clearCart = () => {
@@ -156,7 +152,7 @@ export default function Checkout() {
                 aria-label={`Show ${productView.label.toLowerCase()} view`}
                 aria-pressed={view.id === productView.id}
                 onClick={() => selectView(productView)}
-                className={`relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-stone-200/70 ring-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-700 hover:ring-stone-400 ${
+                className={`relative h-20 w-20 shrink-0 overflow-hidden rounded-xl ring-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-700 hover:ring-stone-400 ${
                   view.id === productView.id
                     ? "ring-stone-700"
                     : "ring-transparent"
@@ -172,14 +168,14 @@ export default function Checkout() {
               </button>
             ))}
           </div>
-          <div className="relative flex flex-1 items-center justify-center overflow-hidden rounded-2xl bg-stone-200/60 p-6 md:p-10">
+          <div className="relative flex flex-1 items-center justify-center overflow-hidden p-6 md:p-10">
             <AnimatePresence initial={false} mode="popLayout">
               <motion.div
                 key={view.id}
-                initial={{ opacity: 0, x: direction * 48 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction * -48 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
+                initial={{ x: direction * 100 + "%" }}
+                animate={{ x: "0%" }}
+                exit={{ x: direction * -100 + "%" }}
+                transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
                 className="w-full max-w-sm"
               >
                 <Image
@@ -275,11 +271,7 @@ export default function Checkout() {
           <ul className="flex flex-col gap-3">
             {lines.map((line) => (
               <li key={line.id}>
-                <CartItem
-                  line={line}
-                  onChangeQuantity={setQuantity}
-                  onRemove={removeLine}
-                />
+                <CartItem line={line} onChangeQuantity={setQuantity} />
               </li>
             ))}
           </ul>

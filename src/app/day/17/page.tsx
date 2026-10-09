@@ -93,7 +93,7 @@ const MAILS: Mail[] = [
     snippet:
       "Hello Spencer, thanks for your order. We're getting it ready to be shipped. Arriving Monday, October 12 - 3 items, $391.29 total...",
     received: "10:24 AM",
-    unread: true,
+    unread: false,
     starred: true,
     body: amazonReceiptBody,
   },
@@ -231,18 +231,6 @@ const IC = {
     "M9.4 9.4a2.6 2.6 0 1 1 3.9 2.3c-.9.5-1.3 1.1-1.3 2",
     "M12 16.9h.01",
   ],
-  gear: [
-    "M12 8.7a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6z",
-    "M12 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14z",
-    "M12 6.8V5.1",
-    "M17.2 12h1.7",
-    "M12 17.2v1.7",
-    "M6.8 12H5.1",
-    "M15.7 8.3l1.2-1.2",
-    "M8.3 8.3 7.1 7.1",
-    "M8.3 15.7l-1.2 1.2",
-    "M15.7 15.7l1.2 1.2",
-  ],
   inboxFill:
     "M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 12h-4c0 1.66-1.34 3-3 3s-3-1.34-3-3H5V5h14v10z",
   inbox: [
@@ -264,7 +252,6 @@ const IC = {
     "M4 4.5h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2z",
     "m2.5 7.5 9.5 6 9.5-6",
   ],
-  label: "M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12z",
   print: [
     "M6 9V3h12v6",
     "M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2",
@@ -647,6 +634,26 @@ const IconBtn = ({
   </button>
 );
 
+const DarkIconBtn = ({
+  children,
+  label,
+  onClick,
+}: {
+  children: React.ReactNode;
+  label: string;
+  onClick?: () => void;
+}) => (
+  <button
+    type="button"
+    title={label}
+    aria-label={label}
+    onClick={onClick}
+    className="grid h-7 w-7 flex-shrink-0 place-items-center rounded-full text-white transition-colors hover:bg-white/15"
+  >
+    {children}
+  </button>
+);
+
 const StarBtn = ({ starred, onToggle, className = "" }: { starred: boolean; onToggle: () => void; className?: string }) => (
   <motion.button
     type="button"
@@ -710,16 +717,16 @@ const ComposeWindow = ({ onClose, onSend }: { onClose: () => void; onSend: () =>
     >
       <div className="flex h-10 items-center justify-between bg-[#404045] px-4">
         <span className="truncate text-sm text-white/90">New Message</span>
-        <div className="flex items-center gap-1 text-white/70">
-          <IconBtn label="Minimize" className="h-7 w-7" onClick={onClose}>
+        <div className="flex items-center gap-1">
+          <DarkIconBtn label="Minimize" onClick={onClose}>
             <Ic d={IC.minimize} className="h-4 w-4" />
-          </IconBtn>
-          <IconBtn label="Full screen" className="h-7 w-7">
+          </DarkIconBtn>
+          <DarkIconBtn label="Full screen">
             <Ic d={IC.expand} className="h-4 w-4" />
-          </IconBtn>
-          <IconBtn label="Save &amp; close" className="h-7 w-7" onClick={onClose}>
+          </DarkIconBtn>
+          <DarkIconBtn label="Save &amp; close" onClick={onClose}>
             <Ic d={IC.close} className="h-4 w-4" />
-          </IconBtn>
+          </DarkIconBtn>
         </div>
       </div>
       <input value={to} onChange={(e) => setTo(e.target.value)} placeholder="To recipients" className={field} />
@@ -759,8 +766,9 @@ const ComposeWindow = ({ onClose, onSend }: { onClose: () => void; onSend: () =>
 export default function Day17() {
   const [mails, setMails] = useState<Mail[]>(MAILS);
   const [tab, setTab] = useState<Category>("primary");
-  const [view, setView] = useState<"inbox" | "mail">("inbox");
-  const [openId, setOpenId] = useState<number | null>(null);
+  // The receipt email is the star of the show - open it by default.
+  const [view, setView] = useState<"inbox" | "mail">("mail");
+  const [openId, setOpenId] = useState<number | null>(MAILS[0].id);
   const [query, setQuery] = useState("");
   const [searchFocused, setSearchFocused] = useState(false);
   const [selected, setSelected] = useState<Set<number>>(new Set());
@@ -901,15 +909,6 @@ export default function Day17() {
       <IconBtn label="Snooze">
         <Ic d={IC.clock} />
       </IconBtn>
-      <IconBtn label="Add to Tasks">
-        <Ic d={IC.check} />
-      </IconBtn>
-      <IconBtn label="Move to Inbox">
-        <Ic d={IC.moveToInboxFill} filled />
-      </IconBtn>
-      <IconBtn label="Labels">
-        <Ic d={IC.label} filled />
-      </IconBtn>
       <IconBtn label="More options">
         <IconMoreV />
       </IconBtn>
@@ -958,9 +957,6 @@ export default function Day17() {
         <div className="ml-auto flex flex-shrink-0 items-center gap-1 text-[#444746]">
           <IconBtn label="Support" className="hidden sm:grid">
             <Ic d={IC.help} />
-          </IconBtn>
-          <IconBtn label="Settings">
-            <Ic d={IC.gear} />
           </IconBtn>
           <IconBtn label="Google apps">
             <IconApps />

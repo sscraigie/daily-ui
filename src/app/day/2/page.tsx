@@ -36,6 +36,12 @@ const ADDED_DURATION = 1200;
 const sectionHeading =
   "text-sm font-semibold uppercase tracking-wide text-stone-900";
 
+const carouselVariants = {
+  enter: (direction: number) => ({ x: direction > 0 ? "100%" : "-100%" }),
+  center: { x: "0%" },
+  exit: (direction: number) => ({ x: direction > 0 ? "-100%" : "100%" }),
+};
+
 export default function Checkout() {
   const [view, setView] = useState<ProductView>(FEATURED_PRODUCT.views[0]);
   const [direction, setDirection] = useState(1);
@@ -152,42 +158,50 @@ export default function Checkout() {
                 aria-label={`Show ${productView.label.toLowerCase()} view`}
                 aria-pressed={view.id === productView.id}
                 onClick={() => selectView(productView)}
-                className={`relative h-20 w-20 shrink-0 overflow-hidden rounded-xl ring-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-700 hover:ring-stone-400 ${
+                className={`relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-white shadow-sm ring-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-700 hover:ring-stone-300 ${
                   view.id === productView.id
                     ? "ring-stone-700"
                     : "ring-transparent"
                 }`}
               >
-                <Image
-                  src={`/d2/${productView.id}.jpg`}
-                  alt=""
-                  fill
-                  sizes="80px"
-                  className="object-cover"
-                />
+              <Image
+                src={`/d2/${productView.id}.jpg`}
+                alt=""
+                fill
+                sizes="80px"
+                className="object-contain"
+              />
               </button>
             ))}
           </div>
-          <div className="relative flex flex-1 items-center justify-center overflow-hidden p-6 md:p-10">
-            <AnimatePresence initial={false} mode="popLayout">
-              <motion.div
-                key={view.id}
-                initial={{ x: direction * 100 + "%" }}
-                animate={{ x: "0%" }}
-                exit={{ x: direction * -100 + "%" }}
-                transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
-                className="w-full max-w-sm"
-              >
-                <Image
-                  src={`/d2/${view.id}.jpg`}
-                  alt={`${FEATURED_PRODUCT.name}, ${view.label.toLowerCase()} view`}
-                  width={480}
-                  height={480}
-                  priority
-                  className="h-auto w-full rounded-2xl object-contain shadow-md"
-                />
-              </motion.div>
-            </AnimatePresence>
+          <div className="relative flex flex-1 items-center justify-center">
+            <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-stone-200">
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.div
+                  key={view.id}
+                  custom={direction}
+                  variants={carouselVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    type: "tween",
+                    duration: 0.4,
+                    ease: [0.32, 0.72, 0, 1],
+                  }}
+                  className="absolute inset-0 flex items-center justify-center p-6"
+                >
+                  <Image
+                    src={`/d2/${view.id}.jpg`}
+                    alt={`${FEATURED_PRODUCT.name}, ${view.label.toLowerCase()} view`}
+                    fill
+                    sizes="(min-width: 768px) 384px, 100vw"
+                    priority
+                    className="h-full w-full object-contain"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
 

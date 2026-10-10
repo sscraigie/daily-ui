@@ -243,11 +243,24 @@ const IC = {
   draft: "M6 2c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6H6zm7 7V3.5L18.5 9H13z",
   chevD: "M6 9l6 6 6-6",
   refresh: ["M21 12a9 9 0 1 1-2.64-6.36", "M21 3v6h-6"],
-  archiveFill:
-    "M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12l.94 1H5.12z",
-  reportFill:
-    "M15.73 3H8.27L3 8.27v7.46L8.27 21h7.46L21 15.73V8.27L15.73 3zM12 17.3c-.72 0-1.3-.58-1.3-1.3s.58-1.3 1.3-1.3 1.3.58 1.3 1.3-.58 1.3-1.3 1.3zm1-4.3h-2V7h2v6z",
-  deleteFill: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z",
+  archive: [
+    "M3.5 4.5h17V9h-17z",
+    "M5 9v9.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9",
+    "M12 11v5.5",
+    "m9.5 14 2.5 2.5 2.5-2.5",
+  ],
+  report: [
+    "M15.73 3H8.27L3 8.27v7.46L8.27 21h7.46L21 15.73V8.27L15.73 3z",
+    "M12 7.5V13",
+    "M12 16.7h.01",
+  ],
+  delete: [
+    "M4.5 6.5h15",
+    "M9 6.5v-2h6v2",
+    "M6.5 6.5v12a1.5 1.5 0 0 0 1.5 1.5h8a1.5 1.5 0 0 0 1.5-1.5v-12",
+    "M10 10.5v6",
+    "M14 10.5v6",
+  ],
   mail: [
     "M4 4.5h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2z",
     "m2.5 7.5 9.5 6 9.5-6",
@@ -876,10 +889,10 @@ export default function Day17() {
         <>
           <span className="ml-2 text-xs font-medium text-[#5f6368]">{selected.size} selected</span>
           <IconBtn label="Archive" onClick={() => removeMails(Array.from(selected), "archived")}>
-            <Ic d={IC.archiveFill} filled />
+            <Ic d={IC.archive} />
           </IconBtn>
           <IconBtn label="Delete" onClick={() => removeMails(Array.from(selected), "moved to Trash")}>
-            <Ic d={IC.deleteFill} filled />
+            <Ic d={IC.delete} />
           </IconBtn>
         </>
       )}
@@ -895,13 +908,13 @@ export default function Day17() {
         <Ic d={IC.back} />
       </IconBtn>
       <IconBtn label="Archive" onClick={() => openId !== null && removeMails([openId], "archived")}>
-        <Ic d={IC.archiveFill} filled />
+        <Ic d={IC.archive} />
       </IconBtn>
       <IconBtn label="Report spam">
-        <Ic d={IC.reportFill} filled />
+        <Ic d={IC.report} />
       </IconBtn>
       <IconBtn label="Delete" onClick={() => openId !== null && removeMails([openId], "moved to Trash")}>
-        <Ic d={IC.deleteFill} filled />
+        <Ic d={IC.delete} />
       </IconBtn>
       <IconBtn label="Mark as unread" onClick={() => openId !== null && markUnread(openId)}>
         <Ic d={IC.mail} />
@@ -926,7 +939,12 @@ export default function Day17() {
           <IconBtn label="Main menu" onClick={() => setSidebarOpen((v) => !v)}>
             <Ic d={IC.menu} />
           </IconBtn>
-          <button type="button" className="ml-1 flex items-center gap-2 rounded-lg px-2 py-1 hover:bg-[#e4e7eb]/60">
+          <button
+            type="button"
+            aria-label="Back to Inbox"
+            onClick={backToInbox}
+            className="ml-1 flex items-center gap-2 rounded-lg px-2 py-1 hover:bg-[#e4e7eb]/60"
+          >
             <GmailLogo className="h-10 w-auto" />
             <span className="text-[22px] leading-none tracking-tight text-[#5f6368]">Gmail</span>
           </button>
@@ -1109,7 +1127,7 @@ export default function Day17() {
                                   removeMails([m.id], "archived");
                                 }}
                               >
-                                <Ic d={IC.archiveFill} className="h-4 w-4" filled />
+                                <Ic d={IC.archive} className="h-4 w-4" />
                               </IconBtn>
                               <IconBtn
                                 label="Delete"
@@ -1119,7 +1137,7 @@ export default function Day17() {
                                   removeMails([m.id], "moved to Trash");
                                 }}
                               >
-                                <Ic d={IC.deleteFill} className="h-4 w-4" filled />
+                                <Ic d={IC.delete} className="h-4 w-4" />
                               </IconBtn>
                             </div>
                             <span className={`w-14 text-right text-xs ${m.unread ? "font-bold text-[#202124]" : "text-[#5f6368]"}`}>

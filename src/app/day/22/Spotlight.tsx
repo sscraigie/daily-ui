@@ -127,7 +127,7 @@ const Highlight = ({ text, indices }: { text: string; indices: number[] }) => {
 };
 
 const Kbd = ({ children }: { children: React.ReactNode }) => (
-  <kbd className="rounded-[5px] border border-white/15 bg-white/10 px-[5px] py-[2px] font-sans text-[10px] font-medium leading-none text-[#b9b9c1]">
+  <kbd className="rounded-[5px] border border-white/15 bg-white/10 px-[5px] py-[2px] font-sans text-[10px] font-medium leading-none text-[#cdced6]">
     {children}
   </kbd>
 );
@@ -383,7 +383,7 @@ export default function Spotlight({ open, onClose, onAction, recents, onRecent, 
 
             {/* search field */}
             <div className="flex items-center gap-3 px-4 pb-1 pt-3.5">
-              <MagnifierIcon className="h-[22px] w-[22px] shrink-0 text-[#98989f]" />
+              <MagnifierIcon className="h-[22px] w-[22px] shrink-0 text-[#b4b4bc]" />
               <input
                 ref={inputRef}
                 value={query}
@@ -394,7 +394,7 @@ export default function Spotlight({ open, onClose, onAction, recents, onRecent, 
                 autoComplete="off"
                 aria-activedescendant={flatRows.length ? `spotlight-row-${selected}` : undefined}
                 aria-label="Spotlight Search"
-                className="min-w-0 flex-1 bg-transparent text-[20px] font-light text-white caret-[#0a84ff] outline-none placeholder:text-[#6c6c72]"
+                className="min-w-0 flex-1 bg-transparent text-[20px] font-light text-white caret-[#0a84ff] outline-none placeholder:text-[#8b8b93]"
               />
               {query && (
                 <button
@@ -438,7 +438,7 @@ export default function Spotlight({ open, onClose, onAction, recents, onRecent, 
                 {flatRows.length === 0 && (
                   <div className="flex flex-col items-center gap-1 py-10 text-center">
                     <p className="text-[14px] font-semibold text-white">No Results</p>
-                    <p className="text-[12px] text-[#98989f]">Try a different search</p>
+                    <p className="text-[12px] text-[#b4b4bc]">Try a different search</p>
                   </div>
                 )}
 
@@ -446,7 +446,7 @@ export default function Spotlight({ open, onClose, onAction, recents, onRecent, 
                   section.rows.length === 0 ? null : (
                     <div key={section.title} className="pb-1.5">
                       <div className="flex items-center justify-between px-2.5 pb-1 pt-2">
-                        <span className="text-[11px] font-semibold text-[#8e8e95]">{section.title}</span>
+                        <span className="text-[11px] font-semibold text-[#ababb4]">{section.title}</span>
                         {section.clearRecents && recents.length > 0 && (
                           <button type="button" onClick={section.clearRecents} className="text-[11px] text-[#4aa3ff] transition hover:underline">
                             Clear
@@ -498,7 +498,7 @@ export default function Spotlight({ open, onClose, onAction, recents, onRecent, 
             </div>
 
             {/* footer hints */}
-            <div className="flex items-center justify-end gap-3 border-t border-white/10 px-4 py-1.5 text-[10.5px] text-[#8e8e95]">
+            <div className="flex items-center justify-end gap-3 border-t border-white/10 px-4 py-1.5 text-[10.5px] text-[#ababb4]">
               <span className="flex items-center gap-1">
                 <Kbd>↑↓</Kbd> navigate
               </span>
@@ -550,7 +550,7 @@ const RowTrailing = ({ row }: { row: ResultRow }) => {
     case "convert":
       return <span className="shrink-0 pl-2 text-[13px] font-medium">{row.conversion.output}</span>;
     case "item":
-      return <span className="shrink-0 truncate pl-2 text-[11px] text-[#98989f]">{row.item.subtitle}</span>;
+      return <span className="shrink-0 truncate pl-2 text-[11px] text-[#b4b4bc]">{row.item.subtitle}</span>;
     default:
       return null;
   }
@@ -564,7 +564,7 @@ const Preview = ({ row, onAction }: { row: ResultRow; onAction: (a: SpotlightAct
       <div className="flex h-full flex-col p-4">
         <ItemIcon id="calculator" className="h-12 w-12" />
         <p className="mt-3 text-[22px] font-semibold tabular-nums text-white">= {formatNumber(row.value)}</p>
-        <p className="mt-0.5 text-[12px] text-[#98989f]">{row.expr}</p>
+        <p className="mt-0.5 text-[12px] text-[#b4b4bc]">{row.expr}</p>
         <div className="mt-auto pt-3">
           <ActionButton label="Copy result" onClick={() => onAction({ type: "copy", text: formatNumber(row.value) })} />
         </div>
@@ -576,7 +576,7 @@ const Preview = ({ row, onAction }: { row: ResultRow; onAction: (a: SpotlightAct
       <div className="flex h-full flex-col p-4">
         <ItemIcon id="calculator" className="h-12 w-12" />
         <p className="mt-3 text-[19px] font-semibold tabular-nums text-white">{row.conversion.output}</p>
-        <p className="mt-0.5 text-[12px] text-[#98989f]">{row.conversion.detail}</p>
+        <p className="mt-0.5 text-[12px] text-[#b4b4bc]">{row.conversion.detail}</p>
         <div className="mt-auto pt-3">
           <ActionButton label="Copy result" onClick={() => onAction({ type: "copy", text: row.conversion.output })} />
         </div>
@@ -590,12 +590,12 @@ const Preview = ({ row, onAction }: { row: ResultRow; onAction: (a: SpotlightAct
       <div className="flex h-full flex-col p-4">
         <ItemIcon id="book" className="h-12 w-12" />
         <p className="mt-3 text-[17px] font-semibold text-white">{def.word}</p>
-        <p className="text-[11.5px] text-[#98989f]">
+        <p className="text-[11.5px] text-[#b4b4bc]">
           {def.phonetic} · {def.part}
         </p>
         <p className="mt-2.5 text-[12.5px] leading-relaxed text-[#d6d6db]">{def.defs[0]}</p>
-        {def.defs[1] && <p className="mt-1.5 text-[12.5px] leading-relaxed text-[#98989f]">{def.defs[1]}</p>}
-        <p className="mt-2.5 text-[12px] italic leading-relaxed text-[#8e8e95]">{def.example}</p>
+        {def.defs[1] && <p className="mt-1.5 text-[12.5px] leading-relaxed text-[#b4b4bc]">{def.defs[1]}</p>}
+        <p className="mt-2.5 text-[12px] italic leading-relaxed text-[#ababb4]">{def.example}</p>
         <div className="mt-auto pt-3">
           <ActionButton label="Copy definition" onClick={() => onAction({ type: "copy", text: `${def.word} — ${def.defs[0]}` })} />
         </div>
@@ -607,7 +607,7 @@ const Preview = ({ row, onAction }: { row: ResultRow; onAction: (a: SpotlightAct
       <div className="flex h-full flex-col p-4">
         <ItemIcon id="globe" className="h-12 w-12" />
         <p className="mt-3 text-[15px] font-semibold text-white">Web Search</p>
-        <p className="mt-0.5 break-all text-[12px] text-[#98989f]">{row.host}</p>
+        <p className="mt-0.5 break-all text-[12px] text-[#b4b4bc]">{row.host}</p>
         <p className="mt-3 text-[12.5px] leading-relaxed text-[#d6d6db]">Opens in your browser — Spotlight hands the query off to the web.</p>
         <div className="mt-auto pt-3">
           <ActionButton label="Search the web" onClick={() => onAction({ type: "web", url: row.url })} />
@@ -627,7 +627,7 @@ const Preview = ({ row, onAction }: { row: ResultRow; onAction: (a: SpotlightAct
         <ItemIcon id={item.icon} className="h-16 w-16" />
       )}
       <p className="mt-3 text-[15px] font-semibold leading-snug text-white">{item.title}</p>
-      <p className="mt-0.5 text-[12px] text-[#98989f]">{item.subtitle ?? "Item"}</p>
+      <p className="mt-0.5 text-[12px] text-[#b4b4bc]">{item.subtitle ?? "Item"}</p>
       {item.kind === "project" && !item.built && (
         <p className="mt-3 rounded-lg border border-white/10 bg-white/[0.06] p-2.5 text-[12px] leading-relaxed text-[#c7c7cc]">
           This prompt hasn&apos;t been built yet — day {item.meta[1][1].replace(" of 100", "")} of the 100-day challenge.
@@ -636,7 +636,7 @@ const Preview = ({ row, onAction }: { row: ResultRow; onAction: (a: SpotlightAct
       <div className="mt-3 space-y-1.5">
         {item.meta.map(([k, v]) => (
           <div key={k} className="flex items-start justify-between gap-2 text-[11.5px]">
-            <span className="shrink-0 text-[#8e8e95]">{k}</span>
+            <span className="shrink-0 text-[#ababb4]">{k}</span>
             <span className="text-right text-[#d6d6db]">{v}</span>
           </div>
         ))}

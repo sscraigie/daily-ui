@@ -358,7 +358,7 @@ export default function Spotlight({ open, onClose, onAction, recents, onRecent, 
       {open && (
         <motion.div
           key="spotlight-backdrop"
-          className="fixed inset-0 z-50 flex items-start justify-center bg-black/25 px-3 pt-[10vh] sm:pt-[12vh]"
+          className="fixed inset-0 z-50 flex items-start justify-center bg-black/15 px-3 pt-[10vh] sm:pt-[12vh]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -368,13 +368,19 @@ export default function Spotlight({ open, onClose, onAction, recents, onRecent, 
           aria-label="Spotlight Search"
         >
           <motion.div
-            className="w-[min(92vw,640px)] overflow-hidden rounded-[20px] border border-white/15 bg-[#232326]/90 shadow-[0_25px_80px_rgba(0,0,0,0.55)] backdrop-blur-2xl"
+            className="relative w-[min(92vw,640px)] overflow-hidden rounded-[24px] border border-white/25 bg-white/[0.08] shadow-[0_25px_80px_rgba(0,0,0,0.5),0_2px_8px_rgba(0,0,0,0.25)] backdrop-blur-3xl backdrop-saturate-150"
             initial={{ opacity: 0, scale: 0.97, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.97, y: -8 }}
             transition={{ type: "spring", stiffness: 520, damping: 34 }}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* liquid-glass sheen: diagonal specular highlight + inner edge light */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 z-10 rounded-[24px] bg-[linear-gradient(140deg,rgba(255,255,255,0.22),rgba(255,255,255,0.03)_38%,rgba(255,255,255,0.08)_72%,rgba(255,255,255,0.20))] shadow-[inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-1px_0_rgba(255,255,255,0.12),inset_1px_0_0_rgba(255,255,255,0.10),inset_-1px_0_0_rgba(255,255,255,0.10),inset_0_0_30px_rgba(255,255,255,0.06)]"
+            />
+
             {/* search field */}
             <div className="flex items-center gap-3 px-4 pb-1 pt-3.5">
               <MagnifierIcon className="h-[22px] w-[22px] shrink-0 text-[#98989f]" />

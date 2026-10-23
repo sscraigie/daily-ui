@@ -354,7 +354,7 @@ const DesktopIcons = ({ onOpen }: { onOpen: (query: string) => void }) => {
 
 const DOCK_ITEMS: { id: string; name: string; icon: IconId; special?: "calculator" | "launchpad"; mobileHide?: boolean }[] = [
   { id: "dock-finder", name: "Finder", icon: "finder" },
-  { id: "dock-launchpad", name: "Launchpad", icon: "launchpad", special: "launchpad" },
+  { id: "dock-launchpad", name: "Launchpad", icon: "launchpad", special: "launchpad", mobileHide: true },
   { id: "dock-safari", name: "Safari", icon: "safari" },
   { id: "dock-mail", name: "Mail", icon: "mail" },
   { id: "dock-notes", name: "Notes", icon: "notes" },

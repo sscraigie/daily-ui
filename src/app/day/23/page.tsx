@@ -234,24 +234,6 @@ export default function Day23() {
           <Screw rot={24} />
           <Screw rot={-18} />
 
-          {/* Engraved ON / OFF markings flanking the toggle */}
-          <span
-            className={`absolute left-1/2 top-[88px] -translate-x-1/2 text-[10px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${
-              on ? "text-[#7d7869]" : "text-[#b3afa6]"
-            }`}
-            style={{ textShadow: "0 1px 0 rgba(255,255,255,.8)" }}
-          >
-            On
-          </span>
-          <span
-            className={`absolute left-1/2 top-[272px] -translate-x-1/2 text-[10px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${
-              on ? "text-[#b3afa6]" : "text-[#7d7869]"
-            }`}
-            style={{ textShadow: "0 1px 0 rgba(255,255,255,.8)" }}
-          >
-            Off
-          </span>
-
           {/* Warm light tint on the plate while on */}
           <div
             className="pointer-events-none absolute inset-0 rounded-[14px] transition-opacity duration-700"
